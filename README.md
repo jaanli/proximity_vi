@@ -33,7 +33,7 @@ Each experiment takes about half a day on a Tesla P100 GPU:
 ./sigmoid_belief_network_grid.sh
 
 # List final estimates of the ELBO and marginal likelihood
-tail -n 1 $LOG/proximity_vi/*/*.log
+tail -n 1 $LOG/proximity_vi/*/*/*.log
 
 # View training statistics on tensorboard
 tensorboard --logdir $LOG/proximity_vi
