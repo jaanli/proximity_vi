@@ -2,6 +2,7 @@
 This code accompanies the proximity variational inference paper.
 
 The promise: Variational inference (left) is sensitive to initialization. Proximity variational inference (right) can help correct this.
+
 <img src="arrows_vanilla_vi.png?raw=true" width=50%/><img src="arrows_proximity_vi.png?raw=true" width=50%/>
 
 
