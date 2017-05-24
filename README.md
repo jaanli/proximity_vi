@@ -1,7 +1,8 @@
 ### Proximity Variational Inference
 This code accompanies the proximity variational inference paper.
 
-![](arrows_vanilla_vi.png?raw=true | width=100)![](arrows_proximity_vi.png?raw=true | width=100)
+![](arrows_vanilla_vi.png?raw=true | width=100)
+![](arrows_proximity_vi.png?raw=true | width=100)
 
 ### Data
 Get the binarized MNIST dataset from [Hugo & Larochelle (2011)](http://proceedings.mlr.press/v15/larochelle11a.html), write it to `/tmp/binarized_mnist.hdf5`.
