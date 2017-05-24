@@ -1,0 +1,68 @@
+batch_size: &batch_size 20
+dtype: float32
+eval_only: false
+print_every: 10000
+n_iterations: &n_iterations 4000001
+inference: vanilla
+hidden_size: &hidden_size 200
+
+train_data:
+  split: train
+  dir: $DAT
+  n_examples: 50000
+  shape: &shape [28, 28, 1]
+  batch_size: *batch_size
+
+valid_data:
+  split: valid
+  dir: $DAT
+  n_examples: 10000
+  shape: *shape
+  batch_size: 1
+
+# optimization
+optim:
+  name: adam
+  n_iterations: *n_iterations
+  learning_rate: 0.001
+  control_variate: leave_one_out
+  geometric_mean: false
+  deterministic_annealing: false
+
+# model
+p:
+  learn_prior: true
+  n_layers: 1
+  bernoulli_p: 0.001
+  # latent dimensionality
+  h_dim: 200
+  w_eps: -100.
+
+# variational
+q:
+  n_samples: 5
+  n_samples_stats: 7
+
+# constraint
+c:
+  proximity_statistic: entropy
+  distance: inverse_huber
+  batch_mean: true
+  sample_mean: true
+  magnitude: init_elbo
+  decay_rate: 0.0000000001
+  decay: exponential
+  decay_steps: *n_iterations
+  lag: moving_average
+
+# exponential moving average
+moving_average:
+  decay: 0.9999
+  zero_debias: true
+
+# logging
+ckpt_to_restore: null
+log:
+  dir: $LOG
+  experiment: ''
+  clear_dir: false

@@ -1,0 +1,10 @@
+name: proximity_vi
+dependencies:
+  - python=3
+  - h5py
+  - scipy
+  - pip:
+    # only use one of the following (gpu, cpu)
+    # - tensorflow-gpu==1.1
+    - tensorflow==1.1
+    - nomen==0.30

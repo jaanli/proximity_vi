@@ -1,0 +1,79 @@
+batch_size: &batch_size 128
+dtype: float32
+eval_only: false
+z_dim: 100
+print_every: 1000
+n_iterations: &n_iterations 50001
+inference: vanilla
+hidden_size: &hidden_size 200
+
+train_data:
+  split: train
+  dir: $DAT
+  n_examples: 50000
+  shape: &shape [28, 28, 1]
+  batch_size: *batch_size
+
+valid_data:
+  split: valid
+  dir: $DAT
+  n_examples: 10000
+  shape: *shape
+  batch_size: 1
+  # perturb_data: true
+  perturb_data: false
+
+# optimization
+optim:
+  name: adam
+  deterministic_annealing: false
+  learning_rate: 0.001
+
+# model
+p:
+  n_layers: 1
+
+p_net:
+  activation: relu
+  n_layers: 2
+  # init_w_stddev: 4. # bad initialization
+  init_w_stddev: 2.0  # default xavier initialization
+  hidden_size: *hidden_size
+
+# variational
+q:
+  n_samples: 1
+  n_samples_stats: 1
+  # n_samples_stats: 5000
+  init_stddev: 1.
+
+q_net:
+  activation: relu
+  hidden_size: *hidden_size
+  weights_initializer: orthogonal
+  n_layers: 2
+
+# constraint
+c:
+  proximity_statistic: orthogonal
+  batch_mean: true
+  distance: inverse_huber
+  magnitude: !!str 1e-4
+  decay_rate: !!float 1e-2
+  # decay: exponential
+  decay_steps: *n_iterations
+  # decay: linear
+  decay: null
+  lag: moving_average
+
+# exponential moving average
+moving_average:
+  decay: 0.9999
+  zero_debias: true
+
+# logging
+ckpt_to_restore: null
+log:
+  dir: $LOG
+  experiment: ''
+  clear_dir: false
