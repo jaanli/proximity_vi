@@ -1,7 +1,7 @@
 ### Proximity Variational Inference
 This code accompanies the proximity variational inference paper.
 
-<img src="arrows_vanilla_vi.png?raw=true" width=100/>
+<img src="arrows_vanilla_vi.png?raw=true" width=50%/>
 <img src="arrows_proximity_vi.png?raw=true" width=100/>
 
 ### Data
