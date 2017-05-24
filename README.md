@@ -1,14 +1,9 @@
 ### Proximity Variational Inference
 This code accompanies the proximity variational inference paper.
 
-The promise:
-<figure>
-    <img src="arrows_vanilla_vi.png?raw=true" width=50%/>
-    <center><figcaption>Variational Inference</figcaption></center>
-</figure><figure>
-    <img src="arrows_proximity_vi.png?raw=true" width=50%/>
-    <center><figcaption>Proximity Variational Inference</figcaption></center>
-</figure>
+The promise: Variational inference (left) is sensitive to initialization. Proximity variational inference (right) can help correct this.
+<img src="arrows_vanilla_vi.png?raw=true" width=50%/><img src="arrows_proximity_vi.png?raw=true" width=50%/>
+
 
 ### Data
 Get the binarized MNIST dataset from [Hugo & Larochelle (2011)](http://proceedings.mlr.press/v15/larochelle11a.html), write it to `/tmp/binarized_mnist.hdf5`.
