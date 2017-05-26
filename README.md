@@ -1,5 +1,16 @@
 ### Proximity Variational Inference
-This code accompanies the proximity variational inference paper.
+This code accompanies the proximity variational inference paper: https://arxiv.org/abs/1705.08931
+
+If you use this code, please cite us:
+```
+@article{altosaar2017proximity,
+	author={Altosaar, J and Ranganath, R and Blei, DM},
+	eprint={arXiv:1311.1704},
+	title={Proximity Variational Inference},
+	url={https://arxiv.org/abs/1705.08931},
+	year={2017}
+}
+```
 
 The promise: Variational inference (left) is sensitive to initialization. Proximity variational inference (right) can help correct this.
 
