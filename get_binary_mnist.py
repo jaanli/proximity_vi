@@ -1,11 +1,10 @@
 """Get the binarized MNIST dataset and convert to hdf5.
 From https://github.com/yburda/iwae/blob/master/datasets.py
 """
-import urllib
+import urllib.request
 import os
 import numpy as np
 import h5py
-import tensorflow as tf
 
 DATASETS_DIR = '/tmp/'
 subdatasets = ['train', 'valid', 'test']
